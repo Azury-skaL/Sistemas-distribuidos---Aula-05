@@ -86,3 +86,19 @@ for t in clientes:
     t.join()
 
 print("Estoque final:", estoque)
+
+
+1. O que aconteceu ao executar o código com Lock?
+O estoque foi atualizado corretamente, e apenas 5 dos 8 clientes conseguiram comprar, sem deixar o estoque negativo.
+    
+2. O que mudou ao retirar o Lock?
+Sem o Lock, vários clientes podem acessar e modificar o estoque ao mesmo tempo, causando inconsistências nos resultados.
+    
+3. Mais clientes conseguiram encontrar a mesma quantidade disponível?
+Sim, sem a proteção, vários clientes podem ler a mesma quantidade antes de ela ser atualizada, gerando uma condição de corrida.
+
+4. Por que uma loja virtual não pode deixar todas as requisições alterarem o estoque sem coordenação?
+Porque vários clientes poderiam comprar a mesma unidade, causando vendas acima do estoque disponível e inconsistências no sistema.
+    
+5. Se os processos estiverem em máquinas diferentes, como saber quem pode acessar um recurso primeiro?
+É necessário utilizar mecanismos de coordenação distribuída, como locks distribuídos, transações ou filas, para controlar o acesso ao recurso compartilhado.
